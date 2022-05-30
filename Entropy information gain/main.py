@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import math
 
-outcomes = pd.read_csv('outcomes.csv')
+outcomes = pd.read_csv("Entropy information gain/outcomes.csv")
 
 def calc_entropy(column):
     """
@@ -58,12 +58,12 @@ def highest_info_gain(columns):
     #Iterate through each column name in our list
     for col in columns:
         #Find the information gain for the column
-        information_gain = calc_information_gain(outcomes, col, 'outcomes')
+        information_gain = calc_information_gain(outcomes, col, 'Outcome')
         #Add the information gain to our dictionary using the column name as the ekey                                         
         information_gains[col] = information_gain
     
     #Return the key with the highest value                                          
     return max(information_gains, key=information_gains.get)
 
-print(highest_info_gain(outcomes, columns, 'outcomes'))
+print(highest_info_gain(columns))
  
